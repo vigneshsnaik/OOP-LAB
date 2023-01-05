@@ -1,5 +1,4 @@
 import java.util.Scanner;
-import java.util.StringTokenizer;
 
 public class DLL_Demo {
     static void help() {
@@ -7,7 +6,7 @@ public class DLL_Demo {
         System.out.println("append <VALUE>             Appends elements to the end ");
         System.out.println("insert <VALUE> <POSITION>  Inserts elements to the POSITION ");
         System.out.println("remove <VALUE>             Deletes the element of given value");
-        System.out.println("removeat <POSITION>       Deletes the element at the POSITION ");
+        System.out.println("removeat <POSITION>        Deletes the element at the POSITION ");
         System.out.println("pop                        Pops the element at the end");
         System.out.println("help                       Displays this message");
         System.out.println("clear                      Clear the Terminal screen");
@@ -18,28 +17,26 @@ public class DLL_Demo {
         Scanner sc = new Scanner(System.in);
         DLL list = new DLL();
         String cmd;
-        // StringTokenizer st;
-        // system("clear"); // clears the terminal for a CLI-like interface
         help();
         while (true) {
-            System.out.print(">>>> ");
+            System.out.print("\r >>>> ");
             cmd = sc.next();
-            if (cmd.equals("append")) {
+            if (cmd.equalsIgnoreCase("append"))
                 list.append(sc.nextInt());
-            } else if (cmd.equals("insert")) {
+            else if (cmd.equalsIgnoreCase("insert"))
                 list.insert(sc.nextInt(), sc.nextInt());
-            } else if (cmd.equals("pop")) {
+            else if (cmd.equalsIgnoreCase("pop"))
                 list.pop();
-            } else if (cmd.equals("remove")) {
+            else if (cmd.equalsIgnoreCase("remove"))
                 list.remove(sc.nextInt());
-            } else if (cmd.equals("removeat")) {
+            else if (cmd.equalsIgnoreCase("removeat"))
                 list.removeAt(sc.nextInt());
-            } else if (cmd.equals("display")) {
+            else if (cmd.equalsIgnoreCase("display"))
                 list.print();
-            } else if (cmd.equals("exit")) {
+            else if (cmd.equalsIgnoreCase("exit"))
                 break;
-            }
-
+            else
+                System.out.println("INVALID CHOICE");
         }
         System.out.println("THANK YOU\n");
         sc.close();

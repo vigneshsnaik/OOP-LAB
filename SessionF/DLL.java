@@ -41,14 +41,13 @@ public class DLL {
     }
 
     void insert(int pos, int data) {
+        Node n = new Node(data);
         if (isEmpty()) {
-            Node n = new Node(data);
             head.next = n;
             n.data = data;
             return;
         }
         int i = 1;
-        Node n = new Node(data);
         Node temp = head;
         while (i < pos) {
             temp = temp.next;
@@ -81,7 +80,7 @@ public class DLL {
         if (!isEmpty()) {
             int i = 0;
             Node temp = head;
-            while (i <=pos) {
+            while (i <= pos) {
                 temp = temp.next;
                 i++;
             }
